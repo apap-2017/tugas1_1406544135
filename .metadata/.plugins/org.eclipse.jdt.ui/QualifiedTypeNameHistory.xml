@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="lombok.Data"/>
+<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+<fullyQualifiedTypeName name="com.example.demo.dao.PendudukMapper"/>
+<fullyQualifiedTypeName name="com.example.demo.service.PendudukService"/>
+<fullyQualifiedTypeName name="com.example.demo.model.PendudukModel"/>
+<fullyQualifiedTypeName name="com.example.demo.model.KeluargaModel"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
+<fullyQualifiedTypeName name="javax.validation.Valid"/>
+<fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+<fullyQualifiedTypeName name="com.example.demo.model.KotaModel"/>
+<fullyQualifiedTypeName name="com.example.demo.model.KecamatanModel"/>
+<fullyQualifiedTypeName name="com.example.demo.model.KelurahanModel"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
+</qualifiedTypeNameHistroy>

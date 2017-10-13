@@ -1,0 +1,63 @@
+package com.example.demo.model;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class PendudukModel {
+
+	private Integer idPenduduk;
+	private String nik;
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String nama;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String tempat_lahir;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong") // Ganti regex atau pake datepicker
+	private String tanggal_lahir;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	private Integer jenis_kelamin;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	private Integer is_wni;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	private Integer id_keluarga;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String agama;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String pekerjaan;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String status_perkawinan;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String status_dalam_keluarga;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String golongan_darah;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	private Integer is_wafat;
+	private KeluargaModel keluarga;
+
+}

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cari data</title>
+    </head>
+    <body>
+       	<h3>Halaman tidak ditemukan</h3>
+    </body>
+</html>

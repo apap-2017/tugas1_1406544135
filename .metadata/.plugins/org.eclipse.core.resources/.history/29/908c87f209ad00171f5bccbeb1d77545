@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View Penduduk by NIK</title>
+    </head>
+    <body>
+	   <form action="/keluarga" th:object="${keluarga}" method="post">
+		    <h3 th:text="'NKK = ' + ${keluarga.nkk}">NKK keluarga</h3>
+			<h3 th:text="'Alamat = ' + ${keluarga.alamat}">Alamat</h3>
+			<h3 th:text="'RT/RW = ' + ${keluarga.rt} + '/'+ ${penduduk.keluarga.rw} ">RT/RW</h3>
+			<h3 th:text="'Kelurahan/Desa = ' + ${keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h3>
+			<h3 th:text="'Kecamatan = ' + ${keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h3>
+			<h3 th:text="'Kota = ' + ${keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h3>				
+		</form>		
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Nama Lengkap</th>
+					<th>NIK</th>
+					<th>Jenis Kelamin</th>
+					<th>Tempat Lahir</th>
+					<th>Tanggal Lahir</th>
+					<th>Agama</th>
+					<th>Pekerjaan</th>
+					<th>Status Perkawinan</th>
+					<th>Status dalam Keluarga</th>
+					<th>Kewarganegaraan</th>
+				</tr>
+			</thead>
+				<tbody>
+					<div th:each="detailAnggota, iterationStatus: ${anggota}">
+						<tr>
+							<td th:text="${detailAnggota.title}"></td>
+							<td>
+								<div th:switch="${publication.status}">
+									<h4>
+										<span th:case="'1'" class="label label-primary">Baru
+											diajukan</span>
+									</h4>
+									<h4>
+										<span th:case="'2'" class="label label-warning">Sedang
+											diproses</span>
+									</h4>
+									<h4>
+										<span th:case="'3'" class="label label-success">Disetujui</span>
+									</h4>
+									<h4>
+										<span th:case="'4'" class="label label-danger">Ditolak</span>
+									</h4>
+								</div>
+
+							</td>
+							<td><a th:href="@{'/b8/publication/ver/'+${publication.id}}"
+								class="btn btn-sm btn-primary glyphicon glyphicon-eye-open"></a>
+								<a th:href="@{'/b8/publication/ver/deletePublication/' + ${publication.id}}" onclick="return confirm('Are you sure you want to delete?');"
+								class="btn btn-sm btn-primary glyphicon glyphicon-trash">  
+								</a>									
+							</td>
+							
+						</tr>
+					</div>
+				</tbody>			
+		</table>
+    </body>
+</html>
+

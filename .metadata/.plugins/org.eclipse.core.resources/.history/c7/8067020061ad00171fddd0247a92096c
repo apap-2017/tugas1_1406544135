@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View Penduduk by NIK</title>
+    </head>
+    <body>
+	   <form th:action="@{/penduduk/tambah/}" method="post">
+		    <input type="username" placeholder="Nama" name="nama"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" />
+		    <input type="username" placeholder="Nama" name="nama"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" />
+		</form>		
+    </body>
+</html>
+

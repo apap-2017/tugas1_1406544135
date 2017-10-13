@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>View Penduduk by NIK</title>
+    </head>
+    <body>
+	   <form action="/keluarga" th:object="${keluarga}" method="post">
+		    <h3 th:text="'NKK = ' + ${keluarga.nkk}">NKK keluarga</h3>
+			<h3 th:text="'Alamat = ' + ${keluarga.alamat}">Alamat</h3>
+			<h3 th:text="'RT/RW = ' + ${keluarga.rt} + '/'+ ${penduduk.keluarga.rw} ">RT/RW</h3>
+			<h3 th:text="'Kelurahan/Desa = ' + ${keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h3>
+			<h3 th:text="'Kecamatan = ' + ${keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h3>
+			<h3 th:text="'Kota = ' + ${keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h3>				
+		</form>		
+    </body>
+</html>
+

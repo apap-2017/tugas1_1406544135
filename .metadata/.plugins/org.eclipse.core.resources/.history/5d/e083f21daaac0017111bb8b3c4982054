@@ -1,0 +1,32 @@
+package com.example.demo.service;
+
+import java.util.List; 
+
+import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.KeluargaMapper;
+import com.example.demo.model.KeluargaModel;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class KeluargaServiceDatabase implements PendudukService
+{
+    @Autowired
+    private KeluargaMapper keluargaMapper;
+
+	@Override
+	public KeluargaModel selectKeluarga(String nkk) {
+		  log.info ("select penduduk with nkk {}", nkk);
+	        return keluargaMapper.selectKeluarga (nkk);
+	}
+    
+
+}

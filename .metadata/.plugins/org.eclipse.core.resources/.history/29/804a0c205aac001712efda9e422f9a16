@@ -1,0 +1,21 @@
+package com.example.demo.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class KeluargaModel {
+
+	private Integer idKeluarga;
+	private String nomorKK;
+	private String alamat;
+	private String rt;
+	private String rw;
+	private Integer idKelurahan;
+	private Integer isTidakBerlaku;
+
+}

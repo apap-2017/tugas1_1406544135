@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Tambah penduduk</title>
+          <link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+	   <form th:action="@{/penduduk/tambah/submit/}" th:object="${penduduk}" method="post">
+		    <input type="text" placeholder="Nama" name="nama"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		    <input type="text" placeholder="Tempat lahir" name="tempat_lahir"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		     <input type="text" placeholder="Tanggal lahir" name="tanggal_lahir"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		    <input type="text" placeholder="Golongan darah" name="gol_darah"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+			<input type="text" placeholder="Agama" name="agama"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		    <input type="text" placeholder="Status perkawinan" name="status_perkawinan"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+	        <input type="text" placeholder="Pekerjaan" name="pekerjaan"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		   	<input type="text" placeholder="Kewarganegaraan" name="kewarganegaraan"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		   	<input type="text" placeholder="Status kematian" name="status_kematian"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		    <input type="text" placeholder="Id keluarga" name="id_keluarga"
+		    data-validation="required" data-validation-error-msg="Wajib diisi" /><br/>
+		    
+		    <div>
+				<button type="submit" name="action" value="save">Submit</button>
+			</div>
+		</form>		
+    </body>
+</html>
+

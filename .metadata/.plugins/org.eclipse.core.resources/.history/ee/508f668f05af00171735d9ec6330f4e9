@@ -1,0 +1,43 @@
+package com.example.demo.model;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class PendudukModel {
+
+	private Integer idPenduduk;
+	private String nik;
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String nama;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private String tempat_lahir;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong") // Ganti regex atau pake datepicker
+	private String tanggal_lahir;
+	private Integer jenis_kelamin;
+	private Integer is_wni;
+	
+	@NotNull(message="Tidak Boleh Kosong")
+	@Size(min=1, message="Tidak Boleh Kosong")
+	private Integer id_keluarga;
+	private String agama;
+	private String pekerjaan;
+	private String status_perkawinan;
+	private String status_dalam_keluarga;
+	private String golongan_darah;
+	private Integer is_wafat;
+	private KeluargaModel keluarga;
+
+}

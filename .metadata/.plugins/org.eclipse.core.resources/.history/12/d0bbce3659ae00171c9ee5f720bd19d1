@@ -1,0 +1,38 @@
+package com.example.demo.model;
+
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class PendudukModel {
+
+	private Integer idPenduduk;
+	private String nik;
+	private String nama;
+	private String tempat_lahir;
+	private String tanggal_lahir;
+	
+	@NotNull(message = "Tidak Boleh Kosong")
+	private Integer jenis_kelamin, is_wni,is_wafat;
+	
+	@NotNull(message = "Tidak Boleh Kosong")
+	private Integer id_keluarga;
+	
+	@NotNull(message = "Tidak Boleh Kosong")
+	private String agama, pekerjaan;
+	
+	@NotNull(message = "Tidak Boleh Kosong")
+	private String status_perkawinan, status_dalam_keluarga;
+
+	@NotNull(message = "Tidak Boleh Kosong")
+	private String golongan_darah;
+
+	private KeluargaModel keluarga;
+
+}

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cari data</title>
+    </head>
+    <body>
+    	<h1>Data tidak ditemukan!</h1>
+       	<h3 th:text="'Nomor = ' + ${nomor}">tidak ditemukan</h3>
+    </body>
+</html>

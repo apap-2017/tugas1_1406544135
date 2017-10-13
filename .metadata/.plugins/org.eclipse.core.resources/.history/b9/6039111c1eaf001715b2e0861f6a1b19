@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Siduk DKI</title>
+          <link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+	    <section class="content-header">
+			<h1>
+				<small>Sistem Kependudukan Online Provinsi DKI Jakarta</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a th:href="@{/}">Home</a></li>
+				<li class="active">Register Penduduk</li>
+			</ol>
+		</section>
+   
+	   <form class="form-horizontal" th:action="@{/penduduk/ubah/ + ${nik}}" th:object="${penduduk}" method="post">
+			   	<div class="form-group">
+					<label class="col-sm-2 control-label">Nama</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control"
+							name="nama" th:field="*{nama}" th:utext="${penduduk.nama}"/>
+						<label th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}"></label>
+					</div>
+				</div>
+   				
+   				<div class="form-group">
+					<label class="col-sm-2 control-label">Tempat Lahir</label>
+					<div class="col-sm-10">
+					    <input type="text" class="form-control" 
+					    name="tempat_lahir" th:field="*{tempat_lahir}" th:utext="${penduduk.tempat_lahir}"/>
+					    <label th:if="${#fields.hasErrors('tempat_lahir')}" th:errors="*{tempat_lahir}"></label>
+					</div>
+				</div>
+   	
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Tanggal Lahir</label>
+					<div class="col-sm-10">
+					    <input type="text" class="form-control" 
+					    name="tanggal_lahir" th:field="*{tanggal_lahir}" th:utext="${penduduk.tanggal_lahir}/>
+					    <label th:if="${#fields.hasErrors('tanggal_lahir')}" th:errors="*{tanggal_lahir}"></label>
+					</div>
+				</div>
+				
+					
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Jenis Kelamin</label>
+					<div class="col-sm-10">
+						<select class="form-control type" name="jenis_kelamin">
+							<option value="" selected="selected">Pilih Jenis Kelamin</option>
+							<option value="0">Pria</option>
+							<option value="1">Wanita</option>
+						</select>
+						<label th:if="${#fields.hasErrors('jenis_kelamin')}" th:errors="*{jenis_kelamin}"></label>
+					</div>
+				</div>	
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Status Dalam Keluarga</label>
+					<div class="col-sm-10">
+					    <input type="text" class="form-control" 
+					    name="status_dalam_keluarga" th:field="*{status_dalam_keluarga}"/>
+					    <label th:if="${#fields.hasErrors('status_dalam_keluarga')}" th:errors="*{status_dalam_keluarga}"></label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Golongan Darah</label>
+					<div class="col-sm-10">
+						<select class="form-control type" name="golongan_darah">
+							<option value="" selected="selected">Pilih Golongan Darah</option>
+							<option value="A">A</option>
+							<option value="B">B</option>
+							<option value="O">O</option>
+							<option value="AB">AB</option>		
+						</select>
+						<label th:if="${#fields.hasErrors('golongan_darah')}" th:errors="*{golongan_darah}"></label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Agama</label>
+					<div class="col-sm-10">
+					    <input type="text" class="form-control" 
+					    name="agama" th:field="*{agama}"/>
+					    <label th:if="${#fields.hasErrors('agama')}" th:errors="*{agama}"></label>
+					</div>
+				</div>		    
+	
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Status Perkawinan</label>
+					<div class="col-sm-10">
+						<select class="form-control type" name="status_perkawinan">
+							<option value="" selected="selected">Pilih Status Perkawinan</option>
+							<option value="Belum Kawin">Belum Kawin</option>
+							<option value="Kawin">Kawin</option>
+							<option value="Cerai Hidup">Cerai Hidup</option>
+							<option value="Cerai Mati">Cerai Mati</option>		
+						</select>
+						<label th:if="${#fields.hasErrors('status_perkawinan')}" th:errors="*{status_perkawinan}"></label>
+					</div>
+				</div>		    	
+	
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Pekerjaan</label>
+					<div class="col-sm-10">
+					    <input type="text" class="form-control" 
+					    name="pekerjaan" th:field="*{pekerjaan}"/>
+					    <label th:if="${#fields.hasErrors('pekerjaan')}" th:errors="*{pekerjaan}"></label>
+					</div>
+				</div>		  
+	
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Kewarganegaraan</label>
+					<div class="col-sm-10">
+						<select class="form-control type" name="is_wni">
+							<option value="" selected="selected">Pilih Kewarganegaraan</option>
+							<option value="0">WNI</option>
+							<option value="1">WNA</option>
+						</select>
+						<label th:if="${#fields.hasErrors('is_wni')}" th:errors="*{is_wni}"></label>
+					</div>
+				</div>	
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Status Kematian</label>
+					<div class="col-sm-10">
+						<select class="form-control type" name="is_wafat">
+							<option value="" selected="selected">Pilih Status Kematian</option>
+							<option value="0">Hidup</option>
+							<option value="1">Wafat</option>
+						</select>
+						<label th:if="${#fields.hasErrors('is_wafat')}" th:errors="*{is_wafat}"></label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Id Keluarga</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="id_keluarga" th:field="*{id_keluarga}"/>
+					    <label th:if="${#fields.hasErrors('id_keluarga')}" th:errors="*{id_keluarga}"></label>
+					</div>
+				</div>
+		    <div>
+				<button type="submit" class="btn btn-sm bg-teal pull-right" name="action" value="save">Submit</button>
+			</div>
+		</form>		
+    </body>
+</html>
+
