@@ -2,22 +2,25 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="sukses-tambah" key="selection"/>
+		<item value="h4" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="tr"/>
+			<item value="td"/>
+			<item value="h4"/>
+			<item value="kartu"/>
+			<item value="select penduduk"/>
+			<item value="wafat"/>
 			<item value="sukses"/>
 			<item value="Tidak Boleh Kosong"/>
-			<item value="nikmin"/>
-			<item value="nik"/>
-			<item value="post"/>
-			<item value="submit"/>
-			<item value="pendudukMapper"/>
-			<item value="pendudukDAO"/>
 		</list>
 		<list key="replacehistory">
+			<item value="h4"/>
+			<item value="tr"/>
+			<item value="td"/>
 			<item value="sukses-tambah"/>
 			<item value="Wajib diisi!"/>
 			<item value="Wajib Diisi"/>

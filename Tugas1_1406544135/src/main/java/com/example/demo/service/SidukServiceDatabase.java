@@ -98,4 +98,15 @@ public class SidukServiceDatabase implements SidukService
 		
 	}
 
+	@Override
+	public void updateKeluarga(KeluargaModel keluarga) {
+		sidukMapper.updateKeluarga(keluarga);
+		
+	}
+
+	@Override
+	public List<PendudukModel> selectListPenduduk(Integer id_kelurahan) {
+		return sidukMapper.selectListPenduduk(id_kelurahan);
+	}
+
 }

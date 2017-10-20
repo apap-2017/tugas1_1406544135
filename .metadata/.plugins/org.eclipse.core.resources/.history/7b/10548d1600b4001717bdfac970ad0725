@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Siduk DKI</title>
+        <link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+
+    <body>
+	    <section class="content-header">
+			<h1>
+				<small>Sistem Kependudukan Online Provinsi DKI Jakarta</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a th:href="@{/}">Home</a></li>
+				<li class="active">Data Keluarga</li>
+			</ol>
+		</section>
+	   <form class="form-horizontal"  action="/keluarga" th:object="${keluarga}" method="post">
+ 			<h3 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomor_kk}"></h3>
+ 				    <h4 th:text="'NKK = ' + ${keluarga.nomor_kk}">NKK keluarga</h4>
+					<h4 th:text="'Alamat = ' + ${keluarga.alamat}">Alamat</h4>
+					<h4 th:text="'RT/RW = ' + ${keluarga.rt} + '/'+ ${keluarga.rw} ">RT/RW</h4>
+					<h4 th:text="'Kelurahan/Desa = ' + ${keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h4>
+					<h4 th:text="'Kecamatan = ' + ${keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h4>
+					<h4 th:text="'Kota = ' + ${keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h4>				
+		</form>		
+		
+		<table class="table table-striped">
+				<tbody>
+						<tr>
+							<td><strong>Nama Lengkap</strong></td>
+							<td><strong>NIK</strong></td>
+							<td><strong>Jenis Kelamin</strong></td>
+							<td><strong>Tempat Lahir</strong></td>
+							<td><strong>Tanggal Lahir</strong></td>	
+							<td><strong> Agama </strong></td>
+							<td><strong> Pekerjaan </strong></td>
+							<td><strong> Status Perkawinan </strong></td>
+							<td><strong> Status dalam Keluarga </strong></td>
+							<td><strong> Kewarganegaraan </strong></td>
+						</tr>
+					<div th:each="detailAnggota, iterationStatus: ${anggota}">
+						<tr>
+							<td th:text="${detailAnggota.nama}"></td>				
+							<td th:text="${detailAnggota.nik}"></td>
+							<td th:text="${detailAnggota.jenis_kelamin}"></td>
+							<td th:text="${detailAnggota.tempat_lahir}"></td>
+							<td th:text="${detailAnggota.tanggal_lahir}"></td>
+							<td th:text="${detailAnggota.agama}"></td>
+							<td th:text="${detailAnggota.pekerjaan}"></td>
+							<td th:text="${detailAnggota.status_perkawinan}"></td>
+							<td th:text="${detailAnggota.status_dalam_keluarga}"></td>
+							<td th:text="${detailAnggota.is_wni}"></td>
+						</tr>
+					</div>
+				</tbody>			
+		</table>
+    </body>
+</html>
+

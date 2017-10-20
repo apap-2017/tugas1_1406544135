@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <title>Siduk DKI</title>
+        <link href="../../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+
+    <body>
+    	 <section class="content-header">
+			<h1>
+				<small>Sistem Kependudukan Online Provinsi DKI Jakarta</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a th:href="@{/}">Home</a></li>
+				<li class="active">Data Penduduk</li>
+			</ol>
+		</section>
+	   <form class="form-horizontal" action="/penduduk" th:object="${penduduk}" method="get">
+		    <h3 th:text="'NIK = ' + ${penduduk.nik}">NIK penduduk</h3>
+			<h3 th:text="'Nama = ' + ${penduduk.nama}"> Nama penduduk</h3>
+			<h3 th:text="'Tempat/Tanggal Lahir = ' + ${penduduk.tempat_lahir} +', ' + ${penduduk.tanggal_lahir}">Tempat/Tanggal lahir</h3>
+			<h3 th:text="'Alamat = ' + ${penduduk.keluarga.alamat}">Alamat</h3>
+			<h3 th:text="'RT/RW = ' + ${penduduk.keluarga.rt} + '/'+ ${penduduk.keluarga.rw} ">RT/RW</h3>
+			<h3 th:text="'Kelurahan/Desa = ' + ${penduduk.keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h3>
+			<h3 th:text="'Kecamatan = ' + ${penduduk.keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h3>
+			<h3 th:text="'Kota = ' + ${penduduk.keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h3>
+			<h3 th:text="'Golongan Darah = ' + ${penduduk.golongan_darah}">Golongan Darah</h3>
+			<h3 th:text="'Agama = ' + ${penduduk.agama}">Agama</h3>	
+			<h3 th:text="'Status Perkawinan = ' + ${penduduk.status_perkawinan}">Status Perkawinan</h3>	
+			<h3 th:text="'Pekerjaan = ' + ${penduduk.pekerjaan}">Pekerjaan</h3>	
+			<h3 th:text="'Kewarganegaraan = ' + ${penduduk.is_wni}">Kewarganegaraan</h3>	
+			<h3 th:text="'Status Kematian = ' + ${penduduk.is_wafat}">Status Kematian</h3>	
+		</form>
+		
+		<div>
+			<button type="submit" class="btn btn-sm bg-teal pull-right" name="action" value="save">Ubah status kematian</button>
+		</div>		
+    </body>
+</html>
+

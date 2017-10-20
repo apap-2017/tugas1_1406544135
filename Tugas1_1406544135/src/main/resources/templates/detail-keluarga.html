@@ -15,34 +15,34 @@
 				<li class="active">Data Keluarga</li>
 			</ol>
 		</section>
+		
 	   <form class="form-horizontal"  action="/keluarga" th:object="${keluarga}" method="post">
-		    <h3 th:text="'NKK = ' + ${keluarga.nomor_kk}">NKK keluarga</h3>
-			<h3 th:text="'Alamat = ' + ${keluarga.alamat}">Alamat</h3>
-			<h3 th:text="'RT/RW = ' + ${keluarga.rt} + '/'+ ${keluarga.rw} ">RT/RW</h3>
-			<h3 th:text="'Kelurahan/Desa = ' + ${keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h3>
-			<h3 th:text="'Kecamatan = ' + ${keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h3>
-			<h3 th:text="'Kota = ' + ${keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h3>				
+ 					<h3 th:text="'Lihat Data Keluarga - ' + ${keluarga.nomor_kk}"></h3>	
+ 				    <h4 th:text="'NKK = ' + ${keluarga.nomor_kk}">NKK keluarga</h4>
+					<h4 th:text="'Alamat = ' + ${keluarga.alamat}">Alamat</h4>
+					<h4 th:text="'RT/RW = ' + ${keluarga.rt} + '/'+ ${keluarga.rw} ">RT/RW</h4>
+					<h4 th:text="'Kelurahan/Desa = ' + ${keluarga.kelurahan.nama_kelurahan} ">Kelurahan</h4>
+					<h4 th:text="'Kecamatan = ' + ${keluarga.kelurahan.kecamatan.nama_kecamatan} ">Kecamatan</h4>
+					<h4 th:text="'Kota = ' + ${keluarga.kelurahan.kecamatan.kota.nama_kota} ">Kota</h4>				
 		</form>		
 		
-		<table>
-			<thead>
-				<tr>
-					<th>Nama Lengkap</th>
-					<th>NIK</th>
-					<th>Jenis Kelamin</th>
-					<th>Tempat Lahir</th>
-					<th>Tanggal Lahir</th>
-					<th>Agama</th>
-					<th>Pekerjaan</th>
-					<th>Status Perkawinan</th>
-					<th>Status dalam Keluarga</th>
-					<th>Kewarganegaraan</th>
-				</tr>
-			</thead>
+		<table class="table table-striped">
 				<tbody>
+						<tr>
+							<td><strong>Nama Lengkap</strong></td>
+							<td><strong>NIK</strong></td>
+							<td><strong>Jenis Kelamin</strong></td>
+							<td><strong>Tempat Lahir</strong></td>
+							<td><strong>Tanggal Lahir</strong></td>	
+							<td><strong> Agama </strong></td>
+							<td><strong> Pekerjaan </strong></td>
+							<td><strong> Status Perkawinan </strong></td>
+							<td><strong> Status dalam Keluarga </strong></td>
+							<td><strong> Kewarganegaraan </strong></td>
+						</tr>
 					<div th:each="detailAnggota, iterationStatus: ${anggota}">
 						<tr>
-							<td th:text="${detailAnggota.nama}"></td>
+							<td th:text="${detailAnggota.nama}"></td>				
 							<td th:text="${detailAnggota.nik}"></td>
 							<td th:text="${detailAnggota.jenis_kelamin}"></td>
 							<td th:text="${detailAnggota.tempat_lahir}"></td>

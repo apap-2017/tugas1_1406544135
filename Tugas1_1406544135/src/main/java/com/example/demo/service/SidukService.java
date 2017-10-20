@@ -11,6 +11,7 @@ import com.example.demo.model.PendudukModel;
 public interface SidukService
 {
 	PendudukModel selectPenduduk(String nik);
+	List<PendudukModel> selectListPenduduk(Integer id_kelurahan);
 	KeluargaModel selectKeluarga(Integer id_keluarga);
 	List<PendudukModel> selectAnggotaKeluarga(String nkk);
 	List<KotaModel> selectDaftarKota();
@@ -23,4 +24,5 @@ public interface SidukService
 	void addPenduduk(PendudukModel penduduk);
 	void updatePenduduk(PendudukModel penduduk);
 	void addKeluarga(KeluargaModel keluarga);
+	void updateKeluarga(KeluargaModel keluarga);
 }

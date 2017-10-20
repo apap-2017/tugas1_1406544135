@@ -104,6 +104,11 @@ public interface SidukMapper {
 	List<PendudukModel> selectAnggotaKeluarga(@Param("nkk") String nkk);
 	
 	@Select("select * " 
+			+ "from penduduk, keluarga "
+			+ "where keluarga.id_kelurahan= #{id_kelurahan} and penduduk.id_keluarga = keluarga.id")
+	List<PendudukModel> selectListPenduduk(@Param("id_kelurahan") Integer id_kelurahan);
+	
+	@Select("select * " 
 			+ "from penduduk "
 			+ "where nik BETWEEN #{nikMin} and #{nikMax}"
 			+ "order by nik "
@@ -137,14 +142,19 @@ public interface SidukMapper {
 	
 	@Insert("INSERT INTO keluarga (nomor_kk, alamat, rt, rw, id_kelurahan) "
 			+ "VALUES (#{nomor_kk}, #{alamat}, #{rt}, #{rw}, #{id_kelurahan})")
-	void addKeluarga(KeluargaModel penduduk);
+	void addKeluarga(KeluargaModel keluarga);
 	
 	@Update("update penduduk set nik = #{nik}, nama= #{nama}, tempat_lahir = #{tempat_lahir}, tanggal_lahir = #{tanggal_lahir}, "
-			+ "jenis_kelamin = #{jenis_kelamin}, is_wni = #{is_wni}, "
+			+ "jenis_kelamin = #{jenis_kelamin}, is_wni = #{is_wni}, is_wafat = #{is_wafat}, "
 			+ "id_keluarga = #{id_keluarga}, agama = #{agama}, pekerjaan =  #{pekerjaan}, "
 			+ "status_perkawinan = #{status_perkawinan}, status_dalam_keluarga = #{status_dalam_keluarga}, golongan_darah = #{golongan_darah}, is_wafat = #{is_wafat} "
 			+ "WHERE id=#{id}")
 	void updatePenduduk(PendudukModel penduduk);
-	
+
+	@Update("update keluarga set nomor_kk = #{nomor_kk}, alamat= #{alamat}, rt = #{rt}, rw = #{rw}, "
+			+ "id_kelurahan = #{id_kelurahan}, is_tidak_berlaku = #{is_tidak_berlaku} "
+			+ "WHERE id=#{id}")
+	void updateKeluarga(KeluargaModel keluarga);
+
 
 }
