@@ -1,12 +1,8 @@
 package com.example.demo.service;
 
-import java.util.List;
+import java.util.List; 
 
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -108,5 +104,16 @@ public class SidukServiceDatabase implements SidukService
 	public List<PendudukModel> selectListPenduduk(Integer id_kelurahan) {
 		return sidukMapper.selectListPenduduk(id_kelurahan);
 	}
+
+	@Override
+	public PendudukModel selectPendudukTertua(Integer id_kelurahan) {
+		return sidukMapper.selectPendudukTertua(id_kelurahan);
+	}
+
+	@Override
+	public PendudukModel selectPendudukTermuda(Integer id_kelurahan) {
+		return sidukMapper.selectPendudukTermuda(id_kelurahan);	
+		}
+
 
 }

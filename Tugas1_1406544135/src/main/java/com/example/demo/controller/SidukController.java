@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
 
-import java.text.SimpleDateFormat; 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -222,9 +223,16 @@ public class SidukController
     	// Cari penduduknya
     	if(idKota.isPresent() && idKecamatan.isPresent() && idKelurahan.isPresent()) {
     		List <PendudukModel> listPenduduk = sidukDAO.selectListPenduduk(idKelurahan.get());
-    		
+    	
+    		PendudukModel pendudukTertua = sidukDAO.selectPendudukTertua(idKelurahan.get());
+    		PendudukModel pendudukTermuda = sidukDAO.selectPendudukTermuda(idKelurahan.get());
+
+    		model.addAttribute("pendudukTertua", pendudukTertua);
+    		model.addAttribute("pendudukTermuda", pendudukTermuda);
     		model.addAttribute("listPenduduk", listPenduduk);
-    		return "list-penduduk";        		
+
+    		return "list-penduduk"; 
+    		
     	} 
     	// Return form pencarian
     	else {
@@ -308,18 +316,37 @@ public class SidukController
     public String updateKeluarga (Model model, @PathVariable(value = "nkk") String nkk)
     {
         KeluargaModel keluarga = sidukDAO.selectKartuKeluarga(nkk);
+      
         
         if(keluarga==null){
         	model.addAttribute("nomor",nkk);
         	return "not-found";
         }else{
+        	
+        	
     		List<KotaModel> daftarKota = sidukDAO.selectDaftarKota();
         	List<KecamatanModel> daftarKecamatan = sidukDAO.selectDaftarKecamatan();
+        	List<KecamatanModel> daftarKecamatanSaya = new ArrayList<>();
+        	List<Integer> temp = new ArrayList<>();
+        	for(KecamatanModel e: daftarKecamatan) {
+        		if (e.getId_kota() == keluarga.getKelurahan().getKecamatan().getId_kota()) {
+        			daftarKecamatanSaya.add(e);
+        			temp.add(e.getId());
+        		}
+        	}
         	List<KelurahanModel> daftarKelurahan = sidukDAO.selectDaftarKelurahan();
+        	List<KelurahanModel> daftarKelurahanSaya = new ArrayList<>();
+        	for(KelurahanModel e: daftarKelurahan) {
+        		if (temp.contains(e.getId_kecamatan())) {
+        			daftarKelurahanSaya.add(e);
+        		}
+        	}
         	
         	model.addAttribute("daftarKota", daftarKota);
         	model.addAttribute("daftarKecamatan", daftarKecamatan);
+        	model.addAttribute("daftarKecamatanSaya", daftarKecamatanSaya);
         	model.addAttribute("daftarKelurahan", daftarKelurahan);
+        	model.addAttribute("daftarKelurahanSaya", daftarKelurahanSaya);
         	model.addAttribute("keluargaModel", keluarga);
         }
         
@@ -337,7 +364,7 @@ public class SidukController
     {
     	KeluargaModel arsipKeluarga = sidukDAO.selectKartuKeluarga(nkk);
  
-    	arsipKeluarga.setId(arsipKeluarga.getId());
+    //	arsipKeluarga.setId(arsipKeluarga.getId());
     	Date date = new Date();
 		String currentDate  = new SimpleDateFormat("dd-MM-yyyy").format(date);
 		currentDate= currentDate.replace("-", "");
@@ -363,12 +390,23 @@ public class SidukController
     		
     		    		
     		List<PendudukModel> anggotaKeluarga = sidukDAO.selectAnggotaKeluarga(nkk);
-    		String NIKbaru;
     		for(int i = 0; i< anggotaKeluarga.size();i++){
-    			NIKbaru = kodeKecamatanBaru + anggotaKeluarga.get(i).getNik().substring(6, 16);
-    			anggotaKeluarga.get(i).setNik(NIKbaru);
-    			sidukDAO.updatePenduduk(anggotaKeluarga.get(i));
-    		}
+    			String nikMin= kodeKecamatanBaru + anggotaKeluarga.get(i).getNik().substring(6, 12) + "0001";
+        		String nikMax= kodeKecamatanBaru + anggotaKeluarga.get(i).getNik().substring(6, 12) + "9999";
+    			PendudukModel cekPenduduk = sidukDAO.selectPendudukTerakhir(nikMin, nikMax);
+    			if(cekPenduduk == null){
+    				anggotaKeluarga.get(i).setNik(nikMin);
+        			sidukDAO.updatePenduduk(anggotaKeluarga.get(i));
+        			
+        			model.addAttribute("nomor", nikMin);
+        		}else{
+        			Long nikBaru = Long.parseLong(cekPenduduk.getNik());
+        			String nikPendudukBaru = String.valueOf(nikBaru+1);
+        			anggotaKeluarga.get(i).setNik(nikPendudukBaru);
+        			sidukDAO.updatePenduduk(anggotaKeluarga.get(i));
+        			model.addAttribute("nomor", nikPendudukBaru);
+        		}
+       		}
     		
      	}else{
 			String nkkUpdateDate = arsipKeluarga.getNomor_kk().substring(0, 6) + currentDate + arsipKeluarga.getNomor_kk().substring(12, 16);      		
@@ -391,10 +429,10 @@ public class SidukController
    		arsipKeluarga.setAlamat(alamat);
 		arsipKeluarga.setRt(rt);
 		arsipKeluarga.setRw(rw);
+		arsipKeluarga.setId_kelurahan(id_kelurahan);
 		sidukDAO.updateKeluarga(arsipKeluarga);
 		model.addAttribute("nomor", arsipKeluarga.getNomor_kk());
     	
     	return"sukses-update-keluarga";
     }
-    
 }

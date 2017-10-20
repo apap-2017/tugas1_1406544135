@@ -122,6 +122,20 @@ public interface SidukMapper {
 			+ "DESC LIMIT 1 ")
 	KeluargaModel selectKeluargaTerakhir(@Param("nkkMin")String nkkMin,@Param("nkkMax") String nkkMax);
 	
+	@Select("select * " 
+			+ "from penduduk,keluarga "
+			+ "where keluarga.id_kelurahan= #{id_kelurahan} and penduduk.id_keluarga = keluarga.id "
+			+ "order by tanggal_lahir "
+			+ "LIMIT 1 ")
+	PendudukModel selectPendudukTertua(@Param("id_kelurahan") Integer id_kelurahan);
+	
+	@Select("select * " 
+			+ "from penduduk,keluarga "
+			+ "where keluarga.id_kelurahan= #{id_kelurahan} and penduduk.id_keluarga = keluarga.id "
+			+ "order by tanggal_lahir "
+			+ "DESC LIMIT 1 ")
+	PendudukModel selectPendudukTermuda(@Param("id_kelurahan") Integer id_kelurahan);
+	
 	@Insert("INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, is_wni, "
 			+ "id_keluarga, agama, pekerjaan, status_perkawinan, status_dalam_keluarga, golongan_darah, is_wafat) "
 			+ "VALUES (#{nik}, #{nama}, #{tempat_lahir}, #{tanggal_lahir}, #{jenis_kelamin}, #{is_wni}, "
