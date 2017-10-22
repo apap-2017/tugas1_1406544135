@@ -81,6 +81,7 @@
 				<th><strong> Pekerjaan </strong></th>
 				<th><strong> Status Perkawinan </strong></th>
 				<th><strong> Kewarganegaraan </strong></th>
+				<th><strong> Kewarganegaraan </strong></th>
 				<th><strong> Lihat Detail </strong></th>
 			</tr>
 		</thead>
@@ -99,8 +100,10 @@
 					<td th:text="${detailAnggota.status_perkawinan}"></td>
 					<td th:if="${detailAnggota.is_wni == 0}" th:text="WNA"></td>
 					<td th:if="${detailAnggota.is_wni == 1}" th:text="WNI"></td>
-					<td><a th:href="@{/penduduk?nik=__${detailAnggota.nik}__}"
-					class="btn btn-sm btn-primary glyphicon glyphicon-eye-open"></a></td>
+					<td><a th:href="@{/penduduk?nik=__${nomor}__}"
+					class="btn btn-primary btn-block btn-flat">Lihat Data</a></td>
+		</div>
+			
 				</tr>
 			</div>
 		</tbody>
