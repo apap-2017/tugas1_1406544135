@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="fragments/fragment :: title('Error 404')"></div>
+</head>
+<body>
+	<h2>Halaman tidak ditemukan</h2>
+</body>
+</html>

@@ -48,9 +48,10 @@
 					<label class="col-sm-2 control-label">Jenis Kelamin</label>
 					<div class="col-sm-10">
 						<select class="form-control type" name="jenis_kelamin">
-							<option value="">Pilih Jenis Kelamin</option>
-							<option value="0">Pria</option>
-							<option value="1">Wanita</option>
+							<option value="1" th:if="${pendudukModel.jenis_kelamin == '1'}" selected="selected">Wanita</option>
+							<option value="0" th:if="${pendudukModel.jenis_kelamin == '0'}" selected="selected">Pria</option>
+							<option th:if="${pendudukModel.jenis_kelamin != '0'}" value="0">Pria</option>
+							<option th:if="${pendudukModel.jenis_kelamin != '1'}" value="1">Wanita</option>
 						</select>
 						<label th:if="${#fields.hasErrors('jenis_kelamin')}" th:errors="*{jenis_kelamin}"></label>
 					</div>
@@ -145,6 +146,7 @@
 					<label class="col-sm-2 control-label">Id Keluarga</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="id_keluarga" th:field="*{id_keluarga}"/>
+						<label th:text="${errorIDArgs}"></label>
 					    <label th:if="${#fields.hasErrors('id_keluarga')}" th:errors="*{id_keluarga}"></label>
 					</div>
 				</div>

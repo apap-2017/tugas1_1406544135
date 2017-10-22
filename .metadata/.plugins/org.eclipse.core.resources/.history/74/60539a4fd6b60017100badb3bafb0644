@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Siduk DKI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<div th:replace="fragments/fragment :: title('Error 404')"></div>
+</head>
+<body>
+	<h2>Halaman tidak ditemukan</h2>
+</body>
+</html>

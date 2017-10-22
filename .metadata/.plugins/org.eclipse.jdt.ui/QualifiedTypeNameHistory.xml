@@ -13,11 +13,14 @@
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
-<fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
 <fullyQualifiedTypeName name="javax.validation.Valid"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="com.example.demo.model.KotaModel"/>
-<fullyQualifiedTypeName name="com.example.demo.model.KecamatanModel"/>
 <fullyQualifiedTypeName name="com.example.demo.model.KelurahanModel"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
+<fullyQualifiedTypeName name="jersey.repackaged.com.google.common.collect.Collections2"/>
+<fullyQualifiedTypeName name="com.google.common.collect.Collections2"/>
+<fullyQualifiedTypeName name="com.example.demo.model.KecamatanModel"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
 </qualifiedTypeNameHistroy>
