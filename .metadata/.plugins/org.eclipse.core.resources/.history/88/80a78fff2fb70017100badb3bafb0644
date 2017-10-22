@@ -16,16 +16,14 @@
 
 		<ol class="breadcrumb">
 			<li><a th:href="@{/}">Home</a></li>
+			<a th:href="@{/penduduk/cari/}"
+						class="btn btn-primary btn-block btn-flat">Cari Penduduk Tertentu</a>
 		</ol>
 	</section>
 	<form class="form-horizontal" method="get">
 		<div class="form-group">
 			<label class="col-sm-2 control-label"></label>
 			<div class="col-sm-10">
-				<div class="pull-right">
-				<a th:href="@{/penduduk/cari/}"
-						class="btn btn-primary btn-block btn-flat">Cari Penduduk Tertentu</a>
-				</div>
 				<div class="pull-left">
 					<a th:href="@{/penduduk/tambah/}"
 						class="btn btn-primary btn-block btn-flat">Tambah Penduduk</a>

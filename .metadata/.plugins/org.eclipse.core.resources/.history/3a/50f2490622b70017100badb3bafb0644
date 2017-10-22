@@ -211,21 +211,9 @@ public class SidukController
 	   	return "sukses-update-penduduk";
    }
     
-    @RequestMapping(value= "/penduduk/{nik}", method=RequestMethod.GET)
     public String setStatusKematian (Model model,
             @PathVariable(value = "nik") String nik)
     {
-    	if(nik==""){
-    		String errorArgs= "NIK harus diisi!";
-    		model.addAttribute("errorNIKArgs", errorArgs);
-    		return "index";
-    	}
-	    	if(!nik.matches("\\d*")){
-	    		String errorArgs= "NIK tidak boleh mengandung huruf!";
-	    		model.addAttribute("errorNIKArgs", errorArgs);
-	    		return "index";
-	    	}
-	    	
 	    	PendudukModel penduduk = sidukDAO.selectPenduduk(nik);
 	    	 if(penduduk==null){
 	         	model.addAttribute("nomor",nik);
@@ -253,8 +241,7 @@ public class SidukController
     		}
     		
 	    	model.addAttribute ("nomor", penduduk.getNik());
-	    	return "redirect:/penduduk/?nik=" + penduduk.getNik();	
-
+	        return "sukses-update-penduduk";
 	      
     }
         

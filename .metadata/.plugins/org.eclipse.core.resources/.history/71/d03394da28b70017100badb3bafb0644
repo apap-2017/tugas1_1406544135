@@ -215,17 +215,6 @@ public class SidukController
     public String setStatusKematian (Model model,
             @PathVariable(value = "nik") String nik)
     {
-    	if(nik==""){
-    		String errorArgs= "NIK harus diisi!";
-    		model.addAttribute("errorNIKArgs", errorArgs);
-    		return "index";
-    	}
-	    	if(!nik.matches("\\d*")){
-	    		String errorArgs= "NIK tidak boleh mengandung huruf!";
-	    		model.addAttribute("errorNIKArgs", errorArgs);
-	    		return "index";
-	    	}
-	    	
 	    	PendudukModel penduduk = sidukDAO.selectPenduduk(nik);
 	    	 if(penduduk==null){
 	         	model.addAttribute("nomor",nik);
