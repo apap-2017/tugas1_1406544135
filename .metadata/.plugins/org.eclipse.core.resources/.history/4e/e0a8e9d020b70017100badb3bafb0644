@@ -463,7 +463,9 @@ public class SidukController
     			arsipKeluarga.setNomor_kk(nkkKeluargaBaru);
     		}  		
      	}
-   	
+   		arsipKeluarga.setAlamat(alamat);
+		arsipKeluarga.setRt(rt);
+		arsipKeluarga.setRw(rw);
 		arsipKeluarga.setId_kelurahan(id_kelurahan);
 		sidukDAO.updateKeluarga(arsipKeluarga);
     	
